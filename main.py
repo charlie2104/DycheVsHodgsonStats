@@ -16,6 +16,8 @@ burnleySeasonGoals = 0
 palaceSeasonGoals = 0
 burnleyGoalsConceded = 0
 palaceGoalsConceded = 0
+burnleyShots = 0
+palaceShots = 0
 
 with open(fileName, 'r') as csvfile:
     csvreader = csv.reader(csvfile)
@@ -36,9 +38,12 @@ for match in burnleyGames:
     if(match[fields.index("HomeTeam")] == "Burnley"):
         burnleySeasonGoals += int(match[fields.index("FTHG")])
         burnleyGoalsConceded += int(match[fields.index("FTAG")])
+        burnleyShots += int(match[fields.index("HS")])
     else:
         burnleySeasonGoals += int(match[fields.index("FTAG")])
         burnleyGoalsConceded += int(match[fields.index("FTHG")])
+        burnleyShots += int(match[fields.index("AS")])
+
 
         
 #print("\nPalace results 17/18")
@@ -47,15 +52,20 @@ for match in palaceGames:
     if(match[fields.index("HomeTeam")] == "Crystal Palace"):
         palaceSeasonGoals += int(match[fields.index("FTHG")])
         palaceGoalsConceded += int(match[fields.index("FTAG")])
+        palaceShots += int(match[fields.index("HS")])
     else:
         palaceSeasonGoals += int(match[fields.index("FTAG")])
         palaceGoalsConceded += int(match[fields.index("FTHG")])
+        palaceShots += int(match[fields.index("AS")])
 
-print("Burnley stats")
-print("burnley total goals scored: " + str(burnleySeasonGoals))
-print("burnley goals conceeded: " + str(burnleyGoalsConceded))
 
-print("\nPalace stats")
-print("palace total goals scored: " + str(palaceSeasonGoals))
-print("palace goals conceeded: " + str(palaceGoalsConceded))
+print("Burnley stats 17/18")
+print("Goals scored: " + str(burnleySeasonGoals))
+print("Goals conceeded: " + str(burnleyGoalsConceded))
+print("Shots: " + str(burnleyShots))
+
+print("\nPalace stats 17/18")
+print("Goals scored: " + str(palaceSeasonGoals))
+print("Goals conceeded: " + str(palaceGoalsConceded))
+print("Shots: " + str(palaceShots))
 
